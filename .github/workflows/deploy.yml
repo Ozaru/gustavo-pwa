@@ -16,7 +16,7 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22 # Versão do Node condizente com seu projeto
+          node-version: 24 # Versão do Node condizente com seu projeto
           cache: 'npm'
 
       - name: Instalar dependências
