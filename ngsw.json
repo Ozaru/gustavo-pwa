@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1787685688003,
+  "timestamp": 1787697615396,
   "index": "https://Ozaru.github.io/gustavo-pwa/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://Ozaru.github.io/gustavo-pwa/favicon.ico",
         "https://Ozaru.github.io/gustavo-pwa/index.html",
-        "https://Ozaru.github.io/gustavo-pwa/main-G2SU3YI2.js",
+        "https://Ozaru.github.io/gustavo-pwa/main-LX3TUOWP.js",
         "https://Ozaru.github.io/gustavo-pwa/manifest.webmanifest",
         "https://Ozaru.github.io/gustavo-pwa/polyfills-PZSJNBYU.js",
         "https://Ozaru.github.io/gustavo-pwa/styles-JG7EAGFK.css"
@@ -51,8 +51,8 @@
     "https://Ozaru.github.io/gustavo-pwa/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
     "https://Ozaru.github.io/gustavo-pwa/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "https://Ozaru.github.io/gustavo-pwa/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "https://Ozaru.github.io/gustavo-pwa/index.html": "87a61ffed8f61a5bcbb6484539f901517aa4db66",
-    "https://Ozaru.github.io/gustavo-pwa/main-G2SU3YI2.js": "9e80e05d3270145567abb5c40520123aa6e63dd0",
+    "https://Ozaru.github.io/gustavo-pwa/index.html": "c80eb06c6f9b07a529883d7c3796358bec0d0512",
+    "https://Ozaru.github.io/gustavo-pwa/main-LX3TUOWP.js": "3a9a6a8eac82f4dfd5fb2b8f83f85d8a1693323f",
     "https://Ozaru.github.io/gustavo-pwa/manifest.webmanifest": "1470efc1a6955f4eb3dd843e71226c44f624719e",
     "https://Ozaru.github.io/gustavo-pwa/polyfills-PZSJNBYU.js": "38c9b370c0e9f9f932fe77ca39c98f09dc174b4d",
     "https://Ozaru.github.io/gustavo-pwa/styles-JG7EAGFK.css": "24a47f30d7622679c7a3decd75d206e5c262921e"
