@@ -1,0 +1,11 @@
+<div class="card">
+    <div class="card-body">
+        <p>{{treinoSelecionado|json}}</p>
+    </div>
+</div>
+<h3>Timer: {{timer()}}</h3>
+<p>
+    <button class="btn btn-primary" (click)="iniciarTimer()">iniciar</button>
+    <button class="btn btn-primary ms-1" (click)="pausarTimer()">pausar</button>
+    <button class="btn btn-primary ms-1" (click)="resetarTimer()">resetar</button>
+</p>
