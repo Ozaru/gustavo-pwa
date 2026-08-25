@@ -1,17 +1,15 @@
 import { Injectable } from "@angular/core"
 
-@Injectable({ providedIn: "root" })
+@Injectable() // permite injetar esse serviço em outra classe automaticamente.
 export class CapoeiraService {
 
-    private lista: CapoeiraModel[] = treinos
-
     obterTreinos() {
-        return this.lista
+        return treinos
     }
 
 }
 
-export class CapoeiraModel {
+export class CapoeiraModel { // classe que representa um treino.
     nome!: string
     corCorda!: string
     movimentos!: string[]
@@ -19,7 +17,7 @@ export class CapoeiraModel {
     tempoDescanso!: number
 }
 
-const treinos: CapoeiraModel[] = [
+const treinos: CapoeiraModel[] = [ // lista fixa de treinos disponiveis.
     {
         nome: 'Corda Crua (Iniciante)',
         corCorda: 'grey',
