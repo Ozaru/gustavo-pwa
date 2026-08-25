@@ -29,5 +29,5 @@ jobs:
       - name: Deploy para o GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/browser # Pasta gerada pelo Angular (confirme se o nome está correto na sua pasta dist)
+          folder: dist/gustavo-pwa/browser # Pasta gerada pelo Angular (confirme se o nome está correto na sua pasta dist)
           branch: gh-pages # Branch onde os arquivos compilados serão salvos
