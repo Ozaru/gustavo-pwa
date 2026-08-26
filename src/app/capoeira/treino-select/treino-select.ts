@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CapoeiraModel } from '../capoeira.service';
+import { TreinoModel } from '../capoeira.service';
 
 @Component({
   imports: [],
@@ -9,7 +9,7 @@ import { CapoeiraModel } from '../capoeira.service';
 })
 export class TreinoSelect {
 
-  @Input() treinos!: CapoeiraModel[]
+  @Input() treinos!: TreinoModel[]
   @Input() treinoSelecionado?: number
   @Output() selecionar = new EventEmitter<number | undefined>()
 

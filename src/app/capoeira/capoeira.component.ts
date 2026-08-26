@@ -1,6 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { CapoeiraModel, CapoeiraService } from './capoeira.service';
+import { TreinoModel, CapoeiraService } from './capoeira.service';
 import { TreinoSelect } from './treino-select/treino-select';
+import { Router } from '@angular/router';
 
 @Component({ // @Component é um decorator que define o componente do angular.
   selector: 'app-capoeira', // é o nome da tag que chama esse componente no html (ex: <app-capoeira>).
@@ -16,8 +17,9 @@ export class CapoeiraComponent implements OnInit { // OnInit obriga o componente
   // *Observação: coisas que começam com private só podem ser acessadas dentro dessa classe. Nem o html pode acessar.
 
   private capoeiraService = inject(CapoeiraService) // inject faz a injeção do serviço CapoeiraService e controla todo o ciclo de vida automáticamente.
+  private router = inject(Router)
 
-  treinos: CapoeiraModel[] = [] // guarda a lista de treinos disponiveis.
+  treinos: TreinoModel[] = [] // guarda a lista de treinos disponiveis.
   treinoSelecionado?: number // guarda o treino que foi selecionado.
 
   movimentoSelecionado?: number
@@ -52,13 +54,11 @@ export class CapoeiraComponent implements OnInit { // OnInit obriga o componente
     const timerId = setInterval(() => { // setInterval é um loop que roda a cada x milisegundos. timerId é o identificador usado para parar o loop.
       if (this.timer() == 0) { // se o timer chegou a zero, pausar o timer.
         this.pausarTimer()
+        alert("fim do movimento!")
+        this.avancar()
       }
       if (this.pausado()) { // se o timer estiver pausado, parar o loop.
         clearInterval(timerId) // parar o loop com o identificador timerId.
-        if (this.timer() == 0) {
-          alert("Movimento finalizado!")
-          this.avancar()
-        }
         return // indica que a função deve sair da execução neste ponto.
       }
       this.timer.update(atual => atual - 1) // se chegou até aqui reduz o timer em 1 segundo.
@@ -82,19 +82,15 @@ export class CapoeiraComponent implements OnInit { // OnInit obriga o componente
     if (this.movimentoSelecionado == undefined) {
       this.selecionarMovimento(0)
     } else if ((this.movimentoSelecionado + 1) >= movimentosTotal) {
-      alert("Você chegou ao fim do treino!")
+      alert("fim do treino!")
       this.reiniciar()
-      return
     } else {
       this.selecionarMovimento(this.movimentoSelecionado + 1)
     }
   }
 
   reiniciar() {
-    this.treinoSelecionado = undefined
-    this.movimentoSelecionado = undefined
-    this.timer.set(0)
-    this.pausado.set(true)
+    window.location.reload()
   }
 
 }

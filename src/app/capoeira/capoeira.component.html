@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <div class="text-center text-primary">
                         <span
-                            class="h3 card-title">{{treinos[treinoSelecionado].movimentos[movimentoSelecionado]}}</span>
+                            class="h3 card-title">{{treinos[treinoSelecionado].movimentos[movimentoSelecionado].nome}}</span>
                     </div>
                     <hr>
                     <div class="d-flex gap-2">
@@ -42,7 +42,7 @@
                         <span class="text-muted ms-auto">Restantes: {{timer()}} segundos.</span>
                     </div>
                     <hr>
-                    <img src="https://cdna.artstation.com/p/assets/images/images/038/536/024/original/maiara-filli-martins-de-almeida-capoeira-macaco.gif?1623348666" alt="" class="img-fluid">
+                    <img [src]="treinos[treinoSelecionado].movimentos[movimentoSelecionado].imagem" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
