@@ -23,7 +23,7 @@ export class CapoeiraComponent implements OnInit { // OnInit obriga o componente
   movimentoSelecionado?: number
 
   timer = signal(0) // guarda o tempo atual do timer. E signal permite atualizar na tela somente o timer sem ter que atualizar toda a página.
-  pausado = true // indica se o timer deve ser pausado ou não.
+  pausado = signal(true) // indica se o timer deve ser pausado ou não.
 
   ngOnInit(): void { // antes da tela abrir faça...
     this.carregarTreinos()
@@ -48,13 +48,17 @@ export class CapoeiraComponent implements OnInit { // OnInit obriga o componente
   }
 
   iniciarTimer() {
-    this.pausado = false // define que o timer está ativo.
+    this.pausado.set(false) // define que o timer está ativo.
     const timerId = setInterval(() => { // setInterval é um loop que roda a cada x milisegundos. timerId é o identificador usado para parar o loop.
       if (this.timer() == 0) { // se o timer chegou a zero, pausar o timer.
         this.pausarTimer()
       }
-      if (this.pausado) { // se o timer estiver pausado, parar o loop.
+      if (this.pausado()) { // se o timer estiver pausado, parar o loop.
         clearInterval(timerId) // parar o loop com o identificador timerId.
+        if (this.timer() == 0) {
+          alert("Movimento finalizado!")
+          this.avancar()
+        }
         return // indica que a função deve sair da execução neste ponto.
       }
       this.timer.update(atual => atual - 1) // se chegou até aqui reduz o timer em 1 segundo.
@@ -62,7 +66,12 @@ export class CapoeiraComponent implements OnInit { // OnInit obriga o componente
   }
 
   pausarTimer() {
-    this.pausado = true
+    this.pausado.set(true)
+  }
+
+  selecionarMovimento(index: number) {
+    this.movimentoSelecionado = index
+    this.resetarTimer()
   }
 
   avancar() {
@@ -71,22 +80,21 @@ export class CapoeiraComponent implements OnInit { // OnInit obriga o componente
     }
     const movimentosTotal = this.treinos[this.treinoSelecionado].movimentos.length
     if (this.movimentoSelecionado == undefined) {
-      this.movimentoSelecionado = 0
+      this.selecionarMovimento(0)
     } else if ((this.movimentoSelecionado + 1) >= movimentosTotal) {
       alert("Você chegou ao fim do treino!")
       this.reiniciar()
       return
     } else {
-      this.movimentoSelecionado += 1
+      this.selecionarMovimento(this.movimentoSelecionado + 1)
     }
-    this.resetarTimer()
   }
 
   reiniciar() {
     this.treinoSelecionado = undefined
     this.movimentoSelecionado = undefined
     this.timer.set(0)
-    this.pausado = true
+    this.pausado.set(true)
   }
 
 }
